@@ -1,12 +1,16 @@
 {% extends 'blog/base.html' %}
+{% load static%}
 {% block content %}
-
+<div class="container mt-5">
+    <img src="{% static 'blog/img/duck.jpg' %}" alt="크으으으" width="10%" height="10%">
+    <h1><strong>멋쟁이 사자처럼 방명록</strong></h1>
+    
     {% for post in posts %}
     <div class="container mt-5">
             <h1>{{ post.title }}</h1>
-            <p>{{ post.summary }}</p>
+            <p>{{ post.summary }}</p><a href='#'>...더보기</a></p>
             <p>{{ post.updated_at }}</p><hr>
     </div>
     {% endfor %}
-
+</div>
 {% endblock %}

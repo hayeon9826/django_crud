@@ -8,5 +8,6 @@ urlpatterns = [
     path('post/new', blog.views.new, name="new"),
     path('post/<int:post_id>/edit', blog.views.edit, name="edit"),
     path('post/<int:post_id>/remove', blog.views.remove, name="remove"),
-    path('comments/new', blog.views.comment_new, name="comment_new"),
+    path('post/<int:pk>/comment', blog.views.comment_new, name="comment_new"),
+    path('comment/<int:pk>/remove', blog.views.comment_remove, name="comment_remove"),
 ]

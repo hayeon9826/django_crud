@@ -1,3 +1,15 @@
+<style>
+.center{
+    margin: auto;
+    padding: 80px;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+</style>
+
 {% extends 'blog/base.html' %}
 {% load static%}
 {% block content %}
@@ -14,20 +26,21 @@
     {% endfor %}
 </div>
 
-<div class="pagination">
+<div class=" center">
     <span class="step-links">
         {% if posts.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ posts.previous_page_number }}">previous</a>
+            <a href="?page=1">&laquo; 1</a>
+            <a href="?page={{ posts.previous_page_number }}">이전</a>
         {% endif %}
 
         <span class="current">
-            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+           [{{posts.number}}]
+            <!-- Page {{ posts.number }} of {{ posts.paginator.num_pages }} -->
         </span>
 
         {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}">next</a>
-            <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+            <a href="?page={{ posts.next_page_number }}">다음</a>
+            <a href="?page={{ posts.paginator.num_pages }}">{{ posts.paginator.num_pages }} &raquo;</a>
         {% endif %}
     </span>
 </div>

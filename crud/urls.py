@@ -19,5 +19,8 @@ import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('post/<int:post_id>', blog.views.detail, name = "detail"),
     path('', blog.views.home, name="home"),
+    path('post/new', blog.views.new, name="new"),
+    path('post/<int:pk>/comment', blog.views.comment_new, name="comment_new"),
 ]

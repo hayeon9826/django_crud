@@ -6,5 +6,5 @@ __pycache__/
 local_settings.py
 db.sqlite3
 myvenv
-edit.html
-comment_new.html
+blog/edit.html
+blog/comment_new.html

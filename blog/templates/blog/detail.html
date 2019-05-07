@@ -19,7 +19,7 @@
                 {%for comment in post.comments.all %}
                 <li>
                         {{comment.text}}
-                        <small>by {{comment.author}}, {{comment.created_at}}</small>
+                        <small>by {{comment.author}}, {{comment.created_at}}</small><a href ="#">삭제</a>
 
                 </li>
                 {% empty %}

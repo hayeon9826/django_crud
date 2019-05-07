@@ -6,4 +6,5 @@ urlpatterns = [
     path('', blog.views.home, name="home"),
     path('post/<int:post_id>', blog.views.detail, name = "detail"),
     path('post/new', blog.views.new, name="new"),
+    path('post/<int:pk>/comment', blog.views.comment_new, name="comment_new"),
 ]

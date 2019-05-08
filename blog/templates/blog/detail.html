@@ -16,6 +16,7 @@
 </div>
 
 <div class = "container mt-5">
+                <!-- 몇번째 게시물의 댓글인지 알려줘야 하기 때문에 post.pk 줘야함  -->
         <a class="btn btn-dark" href = "{% url 'comment_new' post.pk %}">댓글달기</a><br><br>   
         <ul>
                 {%for comment in post.comments.all %}

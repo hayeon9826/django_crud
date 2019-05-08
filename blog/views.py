@@ -15,8 +15,8 @@ def home(request): #request란? 사용자가 요청한 메서드 + string + ... 
     return render(request, 'blog/home.html', {'posts' : posts})
 
 def detail(request, post_id):
-    post_detail = get_object_or_404(Post, pk=post_id)
-    return render(request, 'blog/detail.html', {'post': post_detail})
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'blog/detail.html', {'post': post})
 
 def new(request):
     if request.method == 'POST':

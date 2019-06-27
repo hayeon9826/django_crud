@@ -15,8 +15,18 @@ def home(request): #request란? 사용자가 요청한 메서드 + string + ... 
     return render(request, 'blog/home.html', {'posts' : posts})
 
 def detail(request, post_id):
-    post_detail = get_object_or_404(Post, pk=post_id)
-    return render(request, 'blog/detail.html', {'post': post_detail})
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'blog/detail.html', {'post': post})
+
+def new(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            return redirect('detail', post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'blog/new.html', {'form': form})
 
 def comment_new(request, pk):
     post = get_object_or_404(Post, pk=pk) #post를 가져와서 댓글을 쓸 post를 인식함
@@ -32,12 +42,3 @@ def comment_new(request, pk):
         form = CommentForm()
     return render(request, 'blog/comment_new.html', {'form': form})
 
-def new(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save()
-            return redirect('detail', post.pk)
-    else:
-        form = PostForm()
-    return render(request, 'blog/new.html', {'form': form})
